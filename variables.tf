@@ -38,12 +38,6 @@ variable "name" {
   type        = string
 }
 
-variable "notification_channel" {
-  description = "The notification channel for the pipe."
-  type        = string
-  default     = ""
-}
-
 variable "on_future" {
   description = "..."
   type        = bool
