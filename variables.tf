@@ -41,7 +41,7 @@ variable "name" {
 variable "notification_channel" {
   description = "The notification channel for the pipe."
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "on_future" {
