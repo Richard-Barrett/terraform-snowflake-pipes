@@ -26,7 +26,6 @@ module "snowflake_pipe" {
   # Pipe variables
   auto_ingest          = true
   aws_sns_topic_arn    = "arn:aws:sns:us-west-2:123456789012:my-topic"
-  notification_channel = var.notification_channel
   comment              = "This is my pipe"
 
   copy_statement = <<EOF
