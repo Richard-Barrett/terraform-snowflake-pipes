@@ -3,7 +3,7 @@ terraform {
   required_providers {
     null = {
       source  = "hashicorp/null"
-      version = "~> 3.1.0"
+      version = "~> 3.2.2"
     }
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
@@ -22,7 +22,7 @@ resource "snowflake_pipe" "this" {
   copy_statement = var.copy_statement
   auto_ingest    = var.auto_ingest
 
-  aws_sns_topic_arn    = var.aws_sns_topic_arn
+  aws_sns_topic_arn = var.aws_sns_topic_arn
 }
 
 resource "snowflake_pipe_grant" "grant" {
