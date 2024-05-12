@@ -23,7 +23,6 @@ resource "snowflake_pipe" "this" {
   auto_ingest    = var.auto_ingest
 
   aws_sns_topic_arn    = var.aws_sns_topic_arn
-  notification_channel = var.notification_channel
 }
 
 resource "snowflake_pipe_grant" "grant" {

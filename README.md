@@ -14,7 +14,6 @@ Here's a summary of what each resource does:
 
 - `auto_ingest`: determines whether the pipe will automatically ingest new files from the data source.
 - `aws_sns_topic_arn`: specifies the Amazon Resource Name (ARN) of the SNS topic that will send notifications about new data files to ingest.
-- `notification_channel`: specifies the channel that will receive notifications about the pipe's activities.
 - `comment`: allows you to add a comment or description for the pipe.
 - `copy_statement`: is the SQL statement that the pipe will use to copy data from the data source to the Snowflake database.
 
@@ -54,7 +53,6 @@ module "snowflake_pipe" {
   # Pipe variables
   auto_ingest        = true
   aws_sns_topic_arn  = "arn:aws:sns:us-west-2:123456789012:my-topic"
-  notification_channel = "arn:aws:sns:us-west-2:123456789012:my-channel"
   comment            = "This is my pipe"
   copy_statement     = "COPY INTO my_table FROM @my_stage"
   database           = "my_database"
@@ -83,7 +81,6 @@ module "snowflake_pipe" {
   # Pipe variables
   auto_ingest        = true
   aws_sns_topic_arn  = aws_sns_topic.my_topic.arn
-  notification_channel = aws_sns_topic.my_channel.arn
   comment            = "This is my advanced pipe"
   copy_statement     = <<EOF
     COPY INTO my_advanced_table 
@@ -189,7 +186,6 @@ No modules.
 | <a name="input_database"></a> [database](#input\_database) | The name of the database. | `string` | n/a | yes |
 | <a name="input_enable_multiple_grants"></a> [enable\_multiple\_grants](#input\_enable\_multiple\_grants) | A boolean that determines if multiple grants are enabled. | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the pipe. | `string` | n/a | yes |
-| <a name="input_notification_channel"></a> [notification\_channel](#input\_notification\_channel) | The notification channel for the pipe. | `string` | `null` | no |
 | <a name="input_on_future"></a> [on\_future](#input\_on\_future) | ... | `bool` | `null` | no |
 | <a name="input_privilege"></a> [privilege](#input\_privilege) | The privilege for the grant. | `string` | `"USAGE"` | no |
 | <a name="input_roles"></a> [roles](#input\_roles) | The roles for the grant. | `list(string)` | `[]` | no |
