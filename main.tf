@@ -7,7 +7,7 @@ terraform {
     }
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
-      version = "~> 0.90.0"
+      version = "~> 0.91.0"
     }
   }
 }
@@ -22,7 +22,7 @@ resource "snowflake_pipe" "this" {
   copy_statement = var.copy_statement
   auto_ingest    = var.auto_ingest
 
-  aws_sns_topic_arn    = var.aws_sns_topic_arn
+  aws_sns_topic_arn = var.aws_sns_topic_arn
 }
 
 resource "snowflake_pipe_grant" "grant" {
