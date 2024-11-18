@@ -18,15 +18,15 @@ variable "notification_channel" {
   description = "The notification channel for the pipe."
   type        = string
   default     = "arn:aws:sns:us-west-2:123456789012:my-channel"
-  
+
 }
 module "snowflake_pipe" {
   source = "../.." # Path to the root of the snowflake-pipe module
 
   # Pipe variables
-  auto_ingest          = true
-  aws_sns_topic_arn    = "arn:aws:sns:us-west-2:123456789012:my-topic"
-  comment              = "This is my pipe"
+  auto_ingest       = true
+  aws_sns_topic_arn = "arn:aws:sns:us-west-2:123456789012:my-topic"
+  comment           = "This is my pipe"
 
   copy_statement = <<EOF
     COPY INTO my_table 
@@ -36,9 +36,9 @@ module "snowflake_pipe" {
     NOTIFY = '${var.notification_channel}'
   EOF
 
-  database             = "my_database"
-  name                 = "my_pipe"
-  schema               = "my_schema"
+  database = "my_database"
+  name     = "my_pipe"
+  schema   = "my_schema"
 
   # Grant variables
   on_future              = true
